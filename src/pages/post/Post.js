@@ -24,9 +24,10 @@ function Main() {
   const hackcheck = (r, title, content) => {
     if(!r){
         alert("정상적인 문장입니다");
-    }
+      }
     else{
         alert("해킹시도 감지");
+        window.location.reload();   
     }
 
     navigate('/post1',{

@@ -1,11 +1,13 @@
 import * as s from "./styleComponent.tsx"
 import * as x from "../post/styleComponent.tsx"
-import { Link } from 'react-router-dom';
+import { useNavigate } from 'react-router-dom';
 import login_background from "../img/login_background.png";
 import axios from "axios";
 import React from "react";
 
 function Login() {
+    const navigate = useNavigate();
+
     const Check = async (e) => {
         const topDiv = e.currentTarget.parentElement.parentElement;
         const id = topDiv.children[3].children[0].children[0].value;
@@ -21,10 +23,13 @@ function Login() {
     const hackcheck = (r) => {
         if(!r){
             alert("정상적인 로그인");
+            navigate('/post1');
         }
         else{
             alert("해킹시도 감지");
+            window.location.reload();
         }
+        
     }
 
     return (
@@ -51,9 +56,9 @@ function Login() {
                                 <s.PW placeholder="Password" type="password" id="password" name="password" required />
                             </s.INPUT>
                         </s.Target>
-                        <Link to="/post">
+                        <div>
                             <s.Btn onClick={(e)=>{Check(e)}}>Login</s.Btn>
-                        </Link>
+                        </div>
                     </s.Content>
                 </x.Container>
     );
