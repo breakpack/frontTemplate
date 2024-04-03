@@ -23,7 +23,7 @@ function Login() {
     const hackcheck = (r) => {
         if(!r){
             alert("정상적인 로그인");
-            navigate('/post1');
+            navigate('/post');
         }
         else{
             alert("해킹시도 감지");
